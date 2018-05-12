@@ -8,7 +8,8 @@ var irc = "irc.freenode.net/#ipbc";
 
 var email = "hello@ipbc.io";
 
-var cryptonatorWidget = ["{symbol}-BTC", "{symbol}-USD", "{symbol}-EUR"];
+var cryptonatorWidget = ["IPBC-BTC", "IPBC-USD", "IPBC-EUR"];
+//var cryptonatorWidget = ["{symbol}-BTC", "{symbol}-USD", "{symbol}-EUR"];
 
 var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/releases/";
 
