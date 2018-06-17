@@ -20,13 +20,11 @@ var themeCss = "themes/default-theme.css";
 
 var networkStat = {
   "tube": [
-	["pool.ipbc.io", "pool_ipbc_io"],
 	["support.ipbc.io", "support_ipbc_io"],
 	["support2.ipbc.io", "support2_ipbc_io"],
 	["cryptoknight.cc/ipbc", "cryptoknight_cc"],
 	["ipbc.iccob.com","ipbc_iccob_com"],
 	["youpool.io", "youpool_io"],
-	["pool.ipbc.io","pool_ipbc_io"],
 	["ipbc.bathmatminingpools.com","ipbc_bathmatminingpools_com"],
 	["ipbc.semipool.com","ipbc_semipool_com"]
   ]
