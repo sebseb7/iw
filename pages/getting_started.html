@@ -25,12 +25,9 @@
     #mining_apps > tr > td{
         border-top: none;
     }
-    #mining_apps > tr:nth-child(even) > td{
+    #mining_apps > tr:not(:last-child) > td{
         border-bottom: 1px solid #e5e5e5;
-        padding-bottom: 20px;
-    }
-    #mining_apps > tr:nth-child(odd) > td{
-        padding-top: 20px;
+        padding-bottom: 10px;
     }
     #mining_apps{
         margin-top: 10px;
@@ -51,8 +48,9 @@
 <h3>Connection Details</h3>
 <div class="stats">
     <div><i class="fa fa-cloud"></i> Mining Pool Address: <span id="miningPoolHost"></span></div>
-    <div><i class="fa fa-cloud"></i> Mining Pool Address Asia: <span id="miningPoolHostx">asia.mining.bit.tube</span></div>
-    <div><i class="fa fa-paw"></i> PoW Algorithm: <span id="miningPoolalgo">custom Cryptonight-Lite</span></div>
+    <!--<div><i class="fa fa-cloud"></i> Mining Pool Address Asia: <span id="miningPoolHostx">asia.mining.bit.tube</span></div>-->
+    <div><i class="fa fa-paw"></i> PoW Algorithm: <span id="miningPoolalgo">Tube Cryptonight Heavy</span></div>
+    <div><i class="fa fa-cloud"></i> Integrated Adresses: <span id="miningPoolHostx">supported</span></div>
 </div>
 <br/>
 <h4>Mining Ports</h4>
@@ -78,39 +76,29 @@
         </thead>
         <tbody id="mining_apps">
         <tr>
-            <td class="miningAppTitle">Castxmr 1.0.0</td>
+            <td class="miningAppTitle">Mining Rig Rentals</td>
+            <td>Rental</td>
+            <td><a target="_blank" href="http://www.miningrigrentals.com/">Homepage</a></td>
+        </tr>
+        <tr>
+            <td class="miningAppTitle">CastXMR 1.3.0+</td>
             <td>AMD</td>
-            <td><a target="_blank" href="http://www.gandalph3000.com/">Homepage</a></td>
+            <td><a target="_blank" href="http://www.gandalph3000.com/">Github</a></td>
         </tr>
         <tr>
-        </tr>
-        <tr>
-            <td class="miningAppTitle">BitTube Miner</td>
-            <td>CPU/AMD</td>
-            <td><a target="_blank" href="https://github.com/ipbc-dev/ipbc-miner/releases/tag/1.1">Github</a></td>
-        </tr>
-        <tr>
-        </tr>
-        <!--<tr>
-            <td colspan="5">
-                <span>Example:</span>
-                <code>xmr-stak-amd</code>
-                Please edit <code>config.txt</code> file to suit your needs.
-            </td>
-        </tr>-->
-        <tr>
-            <td class="miningAppTitle">BitTube Miner Nvidia</td>
-            <td>NVIDIA</td>
-            <td><a target="_blank" href="https://github.com/ipbc-dev/ipbc-miner/releases/tag/1.1.3">Github</a></td>
-        </tr>
-        <tr>
-        </tr>
-        <tr>
-            <td class="miningAppTitle">SRB Miner</td>
-            <td>AMD</td>
+            <td class="miningAppTitle">SRB Miner 1.6.1+</td>
+            <td>GPU</td>
             <td><a target="_blank" href="https://bitcointalk.org/index.php?topic=3167363.0">Bitcointalk</a></td>
         </tr>
         <tr>
+            <td class="miningAppTitle">xmrigCC 1.6.5+</td>
+            <td>CPU</td>
+            <td><a target="_blank" href="https://github.com/Bendr0id/xmrigCC/releases">Github</a></td>
+        </tr>
+        <tr>
+            <td class="miningAppTitle">Bittube-Miner 2.0+</td>
+            <td>CPU</td>
+            <td><a target="_blank" href="https://github.com/ipbc-dev/bittube-miner/releases">Github</a></td>
         </tr>
         </tbody>
     </table>

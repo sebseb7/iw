@@ -49,6 +49,9 @@ body {
 .navbar-collapse.collapse.in {
   background-color: #1a1a1a;
 }
+#mining_apps > tr:not(:last-child) > td{
+    border-bottom: 1px solid #465b27 !important;
+}
 #stats_updated {
   /*color: #F4FC3D;*/
 }

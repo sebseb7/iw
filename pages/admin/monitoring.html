@@ -24,6 +24,12 @@
 				<h3>Wallet</h3>
 				<ul class="list-unstyled">
 					<li><strong>Last check:</strong> {{monitoringWallet.lastCheck}}</li>
+					<li><strong>Unlocked Balance:</strong>
+						<span id="walletStatus">{{monitoringWallet.available_balance}}</span>
+					</li>
+					<li><strong>Locked:</strong>
+						<span>{{monitoringWallet.locked_amount}}</span>
+					</li>
 					<li><strong>Last status:</strong>
 						<span id="walletStatus">{{monitoringWallet.lastStatus}}</span>
 					</li>
@@ -81,6 +87,8 @@
 			lastStatus: data['monitoring'].wallet.lastStatus || '',
 			lastFail: getCheckTime(data['monitoring'].wallet.lastFail) || 'never',
 			lastFailResponse: data['monitoring'].wallet.lastFailResponse || ' ',
+			available_balance: getReadableCoins(JSON.parse(data['monitoring'].wallet.lastResponse).unlocked_balance) || ' ',
+			locked_amount: getReadableCoins(JSON.parse(data['monitoring'].wallet.lastResponse).balance) || ' ',
 			lastResponse: data['monitoring'].wallet.lastResponse || ' '
 		};
 		var properData = {};

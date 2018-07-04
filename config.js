@@ -12,20 +12,21 @@ var cryptonatorWidget = ["{symbol}-BTC", "{symbol}-USD", "{symbol}-EUR"];
 
 var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/releases/";
 
-var blockchainExplorer = "/?hash={id}#blockchain_block";
 
-var transactionExplorer = "/?hash={id}#blockchain_transaction";
+var blockchainExplorer = "https://explorer.bit.tube/block/{id}";
+var transactionExplorer = "https://explorer.bit.tube/tx/{id}";
+
 
 var themeCss = "themes/default-theme.css";
 
 var networkStat = {
   "tube": [
-	["support.ipbc.io", "support_ipbc_io"],
+	["tube.herominers.com","tube_herominers_com"],
+	["mining.bit.tube", "support_ipbc_io"],
 	["support2.ipbc.io", "support2_ipbc_io"],
 	["cryptoknight.cc/ipbc", "cryptoknight_cc"],
 	["ipbc.iccob.com","ipbc_iccob_com"],
 	["youpool.io", "youpool_io"],
 	["ipbc.bathmatminingpools.com","ipbc_bathmatminingpools_com"],
-	["ipbc.semipool.com","ipbc_semipool_com"]
   ]
 };

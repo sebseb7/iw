@@ -64,6 +64,17 @@
     #addressError{
         color: red;
     }
+	
+	#workers_rows > tr > td{
+        vertical-align: middle;
+        font-family: 'Inconsolata', monospace;
+        font-size: 0.95em;
+		padding-left:40px;
+        text-align: left;
+    }
+    #workers_rows > tr > td:nth-child(2){
+        text-align: left;
+    }
 
 
     #payments_rows > tr > td{
@@ -80,7 +91,22 @@
 
 
 <div id="siteInfo">
-    <!-- Description or information about this pool -->
+	<br/>
+	You can mine to an exchange wallet using an integrated address. Exchange mining using paymentid is not supported.<br/>
+	<!--NEW: If you are located in Asia try <a href="http://asia.mining.bit.tube/">asia.mining.bit.tube</a> for better performance.-->
+<br/>
+	<span style="color:#86af49;font-size:140%;font-weight:bold">GUI-Wallet 2.0 release</span> for July 2018 Fork: <a style="text-decoration:underline" href="https://github.com/ipbc-dev/bittube-wallet-gui/releases">Download</a>
+	<br/><br/>
+	<br/>
+	<div style="border:1px solid #466f29;padding:10px;">
+        Compatible Miners:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="http://www.gandalph3000.com/">CastXMR 1.3.0+</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://bitcointalk.org/index.php?topic=3167363.0">SRB Miner 1.6.1</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/Bendr0id/xmrigCC/releases">xmrigCC 1.6.5</a>
+
+    </div>
+	<br/><br/>
+
 </div>
 
 <div class="row">
@@ -220,7 +246,7 @@
     <h3>Estimate Mining Profits</h3>
     <div id="calcHashHolder">
         <div class="input-group">
-            <input type="number" class="form-control" id="calcHashRate" placeholder="Enter Your Hash Rate">
+            <input type="number" class="form-control" style="width:400px" id="calcHashRate" placeholder="Enter Your Hash Rate (Tube Cryptonight Heavy)">
             <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
                     <span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
@@ -280,6 +306,24 @@
 
 
     <br class="yourStats">
+    
+	<h4 class="yourStats">Workers</h4>
+    <div class="yourStats table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><i class="fa fa-cogs"></i> Worker</th>
+                <th><i class="fa fa-tachometer"></i> Hashrate (15m average)</th>
+                <th><i class="fa fa-clock-o"></i> Last Share</th>
+                <th><i class="fa fa-exclamation-triangle"></i> Bad Shares</th>
+                <th><i class="fa fa-clock-o"></i> Avg. Job Time</th>
+            </tr>
+            </thead>
+            <tbody id="workers_rows">
+
+            </tbody>
+        </table>
+    </div>
 
     <h4 class="yourStats">Payments</h4>
     <div class="yourStats table-responsive">
@@ -468,6 +512,16 @@
                 '<td>' + getReadableCoins(payment.amount, 4, true) + '</td>' +
                 '<td>' + payment.mixin + '</td>';
     }
+    
+	function getWorkerCells(worker,rate){
+        
+		return '<td>' + worker + '</td>' +
+				'<td>' + rate[0] + '</td>'+
+				'<td>' + jQuery.timeago(rate[1]*1000) + '</td>'+
+				'<td>' + rate[3].toFixed(2) + ' %</td>'+
+				'<td>' + getReadableTime(rate[2].toFixed(0)) + '</td>';
+    }
+
 
     var xhrAddressPoll;
     var addressTimeout;
@@ -483,6 +537,7 @@
         $('#addressError').hide();
         $('.yourStats').hide();
         $('#payments_rows').empty();
+        $('#workers_rows').empty();
 
         $('#lookUp > span:first-child').hide();
         $('#lookUp > span:last-child').show();
@@ -539,6 +594,7 @@
 						dataType: 'json',
 						success: function(data) {
 							createUserCharts(data);
+							if(data.workers)renderWorkers(data.workers);
 						}
 					});
 
