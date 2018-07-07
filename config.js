@@ -22,6 +22,7 @@ var themeCss = "themes/default-theme.css";
 var networkStat = {
   "tube": [
 	["tube.herominers.com","tube_herominers_com"],
+	["bittube.fairhash.org", "bittube_fairhash_org"],
 	["mining.bit.tube", "support_ipbc_io"],
 	["support2.ipbc.io", "support2_ipbc_io"],
 	["cryptoknight.cc/ipbc", "cryptoknight_cc"],
